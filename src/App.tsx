@@ -1,5 +1,5 @@
 import "./App.css";
-import { GameGrid, Navbar } from "./components";
+import { GameGrid, GenreList, Navbar } from "./components";
 
 function App() {
   return (
@@ -9,7 +9,9 @@ function App() {
       </header>
 
       <div className="flex">
-        <aside className="w-[260px] max-lg:hidden">Aside</aside>
+        <aside className="w-[260px] max-lg:hidden">
+          <GenreList />
+        </aside>
 
         <main className="flex-1">
           <GameGrid />

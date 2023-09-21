@@ -1,6 +1,5 @@
 import useGames from "../../../hooks/useGames";
-import { GameCard } from "../..";
-import LoaderSkeleton from "../LoaderSkeleton/LoaderSkeleton";
+import { GameCard, LoaderSkeletonGame } from "../..";
 
 const GameGrid = () => {
   const { games, error, isLoading } = useGames();
@@ -15,7 +14,7 @@ const GameGrid = () => {
         <div className="grid gap-5 max-sm:grid-cols-1 max-md:grid-cols-2 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {loaderCount.map((loader) => (
             <div key={loader}>
-              <LoaderSkeleton />
+              <LoaderSkeletonGame />
             </div>
           ))}
         </div>
