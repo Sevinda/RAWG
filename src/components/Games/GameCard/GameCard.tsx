@@ -1,4 +1,4 @@
-import { IconList } from "../..";
+import { IconList, Score } from "../..";
 import { Game } from "../../../hooks/useGames";
 import getCroppedImageUrl from "../../../services/image-url";
 
@@ -17,7 +17,13 @@ const GameCard = ({ game }: Props) => {
       <div className="p-5">
         <p className="font-bold text-[20px]">{game.name}</p>
 
-        <IconList />
+        <div className="flex items-center justify-between mt-3">
+          <IconList
+            key={game.id}
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          />
+          <Score score={game.metacritic} />
+        </div>
       </div>
     </div>
   );
