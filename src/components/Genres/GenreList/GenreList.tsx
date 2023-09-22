@@ -1,8 +1,13 @@
-import useGenres from "../../../hooks/useGenres";
+import useGenres, { Genre } from "../../../hooks/useGenres";
 import getCroppedImageUrl from "../../../services/image-url";
 import { LoaderSkeletonGenre } from "../..";
 
-const GenreList = () => {
+interface Props {
+  onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
+}
+
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { genres, isLoading, error } = useGenres();
 
   const loaderCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -22,7 +27,12 @@ const GenreList = () => {
       {genres.map((genre) => (
         <button
           key={genre.id}
-          className="flex items-center gap-4 mb-3 hover:scale-105"
+          className={
+            genre.id === selectedGenre?.id
+              ? "flex items-center gap-4 mb-3 scale-110"
+              : "flex items-center gap-4 mb-3 hover:scale-105"
+          }
+          onClick={() => onSelectGenre(genre)}
         >
           <img
             src={getCroppedImageUrl(genre.image_background)}

@@ -14,10 +14,10 @@ const GameCard = ({ game }: Props) => {
         alt={game.name}
         className="object-contain"
       />
-      <div className="p-5">
+      <div className="px-5 py-5">
         <p className="font-bold text-[20px]">{game.name}</p>
 
-        <div className="flex items-center justify-between mt-3">
+        <div className="flex items-center flex-wrap justify-between mt-3">
           <IconList
             key={game.id}
             platforms={game.parent_platforms.map((p) => p.platform)}

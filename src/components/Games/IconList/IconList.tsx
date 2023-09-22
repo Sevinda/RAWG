@@ -31,9 +31,9 @@ const IconList = ({ platforms }: Props) => {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 mb-3 mr-4">
       {platforms.map((platform) => (
-        <div key={platform.id} className="text-lg">
+        <div key={platform.id} className="text-base">
           {React.createElement(iconMap[platform.slug])}
         </div>
       ))}

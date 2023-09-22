@@ -3,10 +3,13 @@ interface Props {
 }
 
 const Score = ({ score }: Props) => {
-  let color = score > 60 ? "green" : "red";
+  let color = score > 60 ? "text-green-500" : "text-red-500";
+  let borderColor = score > 60 ? "border-green-500" : "border-red-500";
   return (
     <div
-      className={`text-${color}-500 border-${color}-500 border px-2 py-[1px] rounded`}
+      className={
+        "border px-2 py-[1px] rounded boreder " + color + " " + borderColor
+      }
     >
       {score}
     </div>
